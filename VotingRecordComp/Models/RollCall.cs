@@ -33,11 +33,12 @@ namespace VotingRecordComp.Models
         public override string ToString()
         {
             var date = $"{VoteDate:u}".Remove(10);
-            return $"{date}-{SequenceNumber}";
+            return $"{date}-{Agency[0]}{SequenceNumber:D3}";
         }
         public override bool Equals(Object obj)
         {
             return VoteDate == ((RollCall)obj).VoteDate
+                && Agency == ((RollCall)obj).Agency
                 && SequenceNumber == ((RollCall)obj).SequenceNumber;
         }
 
